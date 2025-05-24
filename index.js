@@ -69,6 +69,11 @@ function getItemById(items=[], id) {
  */
 function getItemPriceByName(items, name) {
   // TODO: use a loop!
+  items.forEach((item) => {
+    if (item.name === name)
+      result = item.price;
+  })
+  return result;
 }
 
 /**
@@ -78,6 +83,9 @@ function getItemPriceByName(items, name) {
  */
 function getItemsByCategory(items, category) {
   // TODO: use `filter`
+  let results = items.filter((item) => item.category.valueOf() === category);
+
+  return results;
 }
 
 /**
@@ -86,6 +94,11 @@ function getItemsByCategory(items, category) {
  */
 function countItems(items) {
   // TODO: use `reduce`
+   const itemCount = items.reduce((sum, item) => {
+      return sum + item.quantity
+  },0);
+  //console.log("getTotalPrice totalPrice value", totalPrice)
+  return itemCount;
 }
 
 /**
@@ -94,6 +107,11 @@ function countItems(items) {
  */
 function getTotalPrice(items) {
   // TODO: use `reduce`
+  const totalPrice = items.reduce((sum, item) => {
+      return sum + item.price
+  },0);
+  //console.log("getTotalPrice totalPrice value", totalPrice)
+  return totalPrice;
 }
 
 // === READ BUT DO NOT CHANGE THE CODE BELOW ===
